@@ -6,5 +6,6 @@
 		<class>it.unibz.teststore.entity.Blog</class>
 		<class>it.unibz.teststore.entity.Item</class>
 		<class>it.unibz.teststore.entity.Project</class>
+		<class>it.unibz.teststore.entity.Build</class>
 	</persistence-unit>
 </persistence>
