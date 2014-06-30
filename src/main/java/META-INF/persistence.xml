@@ -7,5 +7,7 @@
 		<class>it.unibz.teststore.entity.Item</class>
 		<class>it.unibz.teststore.entity.Project</class>
 		<class>it.unibz.teststore.entity.Build</class>
+		<class>it.unibz.teststore.entity.TestCase</class>
+		<class>it.unibz.teststore.entity.History</class>
 	</persistence-unit>
 </persistence>

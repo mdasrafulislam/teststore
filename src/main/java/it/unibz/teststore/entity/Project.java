@@ -1,8 +1,12 @@
 package it.unibz.teststore.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
 
@@ -19,10 +23,13 @@ public class Project {
 	@Size(min = 1, message = "Invalid url address!")
 	private String url;
 	
+	@OneToMany
+	@JoinTable
+	private List<Build> builds;
+	
 	public Integer getId() {
 	    return id;
-	}
-
+	  }
 	 
 	public String getName() {
 		  return name;
@@ -38,6 +45,14 @@ public class Project {
 
 	public void setUrl(String url) {
 		  this.url = url;
+	}
+	
+	public List<Build> getBuilds() {
+		return builds;
+	}
+
+	public void setRoles(List<Build> builds) {
+		this.builds = builds;
 	}
 
 }
