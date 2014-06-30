@@ -3,6 +3,7 @@ package it.unibz.teststore.entity;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,9 +20,10 @@ public class Build {
 	private Integer id;
 
 	@Size(min =1)
-	private Integer number;
+	private Integer buildNumber;
 	
 	@Size(min =1)
+	@Column(name = "build_time")
 	private Date buildTime;
 	
 	@ManyToOne
@@ -29,7 +31,7 @@ public class Build {
 	private Project project;
 	
 	@OneToMany
-	@JoinColumn(name = "build_id")
+	@JoinColumn
 	private List<TestCase>  testCases;
 	
 			
@@ -53,12 +55,12 @@ public class Build {
 		return testCases;
 	}
 		
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setNumber(Integer buildNumber) {
+		this.buildNumber = buildNumber;
 	}
 
 	public Integer getNumber() {
-		return number;
+		return buildNumber;
 	}
 	 
 	public Date getBuildTime() {

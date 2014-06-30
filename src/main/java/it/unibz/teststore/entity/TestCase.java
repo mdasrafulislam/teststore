@@ -24,11 +24,11 @@ public class TestCase {
 	private String testName;
 	
 	@ManyToOne
-	@JoinColumn(name = "project_id")
+	@JoinColumn
 	private Project project;
 	
 	@OneToMany
-	@JoinColumn(name = "testcase_id")
+	@JoinColumn
 	private List<History> histories;
 		
 	public void setId(Integer id){

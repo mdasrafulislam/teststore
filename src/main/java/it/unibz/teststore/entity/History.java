@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -16,12 +17,12 @@ public class History {
 	@GeneratedValue
 	private Long id;
 	
-	@OneToMany
-	@JoinColumn(name = "test_id")
-	private List<TestCase> testCases;
+	@ManyToOne
+	@JoinColumn
+	private TestCase testCase;
 	
-	@OneToMany
-	@JoinColumn(name = "build_id")
+	@ManyToOne(targetEntity = Build.class)
+	@JoinColumn
 	private List<Build> builds;
 	
     private Integer duration;
@@ -43,12 +44,12 @@ public class History {
 	    return id;
 	}
 	
-	public void setTestCase(List<TestCase> testCases){
-		this.testCases=testCases;
+	public void setTestCase(TestCase testCase){
+		this.testCase=testCase;
 	}
 	
-	public List<TestCase> getTestCase(){
-		return testCases;
+	public TestCase getTestCase(){
+		return testCase;
 	}
 	
 	public List<Build> getBuilds() {
