@@ -17,9 +17,11 @@ public class Build {
 	
 	@Id
 	@GeneratedValue
+	@Column(name = "id")
 	private Integer id;
 
 	@Size(min =1)
+	@Column(name = "build_number")
 	private Integer buildNumber;
 	
 	@Size(min =1)
@@ -27,7 +29,7 @@ public class Build {
 	private Date buildTime;
 	
 	@ManyToOne
-	@JoinColumn(name = "project_id")
+	@JoinColumn
 	private Project project;
 	
 	@OneToMany
@@ -70,6 +72,4 @@ public class Build {
 	public void setBuildTime(Date buildTime) {
 		this.buildTime = buildTime;
 	}
-	
-	
 }

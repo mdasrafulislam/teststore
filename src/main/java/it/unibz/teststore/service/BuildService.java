@@ -1,5 +1,7 @@
 package it.unibz.teststore.service;
 
+import java.util.List;
+
 import it.unibz.teststore.entity.Build;
 import it.unibz.teststore.repository.BuildRepository;
 import it.unibz.teststore.repository.ProjectRepository;
@@ -18,6 +20,16 @@ public class BuildService {
 		buildRepository.save(build);
 	}
 	
+	public Build findBuildById(int id) {
+		return buildRepository.findOne(id);
+	}
 	
-
+	public List<Build> findAllBuild() {
+		return buildRepository.findAll();
+	}
+	
+	public void delete(Build build){
+		buildRepository.delete(build);
+	}
+	
 }
