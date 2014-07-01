@@ -9,5 +9,7 @@
 		<class>it.unibz.teststore.entity.Build</class>
 		<class>it.unibz.teststore.entity.TestCase</class>
 		<class>it.unibz.teststore.entity.History</class>
+		<class>it.unibz.teststore.entity.Technique</class>
+		<class>it.unibz.teststore.entity.PrioritizationJob</class>
 	</persistence-unit>
 </persistence>
