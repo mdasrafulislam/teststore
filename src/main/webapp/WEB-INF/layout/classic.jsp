@@ -54,7 +54,7 @@
               	
               </security:authorize>
               <security:authorize access="isAuthenticated()">
-              	<li class="${current == 'account' ? 'active' : ''}"><a href="<spring:url value="/project.html" />">project</a></li>
+              	<li class="${current == 'project' ? 'active' : ''}"><a href="<spring:url value="/project.html" />">project</a></li>
               </security:authorize>
               <li class="${current == 'register' ? 'active' : ''}"><a href="<spring:url value="/register.html" />">register</a></li>
               <security:authorize access="! isAuthenticated()">

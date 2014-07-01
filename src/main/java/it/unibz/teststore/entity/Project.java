@@ -17,7 +17,7 @@ public class Project {
 	@GeneratedValue
 	private Integer id;
 	
-	@Size(min = 50, message = "Project name must be less than 50 character!")
+	@Size(max=255, message = "Project name must be less than 50 character!")
     private String name;
 	
 	@Size(min = 1, message = "Invalid url address!")
