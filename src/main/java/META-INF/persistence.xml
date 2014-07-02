@@ -11,5 +11,6 @@
 		<class>it.unibz.teststore.entity.History</class>
 		<class>it.unibz.teststore.entity.Technique</class>
 		<class>it.unibz.teststore.entity.PrioritizationJob</class>
+		<class>it.unibz.teststore.entity.PreCalculation</class>
 	</persistence-unit>
 </persistence>
