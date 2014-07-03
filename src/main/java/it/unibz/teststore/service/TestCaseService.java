@@ -11,8 +11,9 @@ public class TestCaseService {
 	@Autowired
 	private TestCaseRepository testCaseRepository;
 	
-	public void save( TestCase testCase) {
+	public TestCase save( TestCase testCase) {
 		testCaseRepository.save(testCase);
+		return testCase;
 	}
 	
 	public TestCase findBuildById(int id) {
@@ -25,5 +26,20 @@ public class TestCaseService {
 	
 	public void delete(TestCase testCase){
 		testCaseRepository.delete(testCase);
+	}
+	
+
+	public TestCase SelectByClassByTestCase(String testName, String className) {
+			
+      TestCase testCase = new TestCase();
+      return testCase;
+	}
+	
+	public TestCase insertIfNotExists(String testName, String testClass) throws Exception {
+		TestCase testCase = SelectByClassByTestCase(testName, testClass);
+		if (testCase == null) {
+			testCase = save(testCase);
+		}
+		return testCase;
 	}
 }

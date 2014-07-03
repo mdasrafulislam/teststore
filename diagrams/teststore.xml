@@ -22,6 +22,17 @@
 	</entity>
 
 	<entity>
+		<entity-name>it.unibz.teststore.entity.TestCase</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>186</entity-height>
+		<entity-X-Coordinate>125</entity-X-Coordinate>
+		<entity-Y-Coordinate>340</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
 		<entity-name>it.unibz.teststore.entity.Project</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>166</entity-height>
@@ -33,11 +44,33 @@
 	</entity>
 
 	<entity>
-		<entity-name>it.unibz.teststore.entity.TestCase</entity-name>
+		<entity-name>it.unibz.teststore.entity.PreCalculation</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>186</entity-height>
-		<entity-X-Coordinate>125</entity-X-Coordinate>
-		<entity-Y-Coordinate>340</entity-Y-Coordinate>
+		<entity-height>306</entity-height>
+		<entity-X-Coordinate>136</entity-X-Coordinate>
+		<entity-Y-Coordinate>641</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>it.unibz.teststore.entity.Technique</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>128</entity-height>
+		<entity-X-Coordinate>370</entity-X-Coordinate>
+		<entity-Y-Coordinate>652</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>it.unibz.teststore.entity.PrioritizationJob</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>206</entity-height>
+		<entity-X-Coordinate>370</entity-X-Coordinate>
+		<entity-Y-Coordinate>840</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

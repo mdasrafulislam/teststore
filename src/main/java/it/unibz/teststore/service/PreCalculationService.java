@@ -27,6 +27,4 @@ public class PreCalculationService {
 	public void delete(PreCalculation preCalcuation){
 		preCalculationRepository.delete(preCalcuation);
 	}
-
-
 }
