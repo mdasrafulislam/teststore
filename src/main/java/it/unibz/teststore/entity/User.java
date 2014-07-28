@@ -57,7 +57,7 @@ public class User {
 	}
 
 	public void setBlogs(List<Blog> blogs) {
-		this.blogs = blogs;
+		this.blogs = blogs; 
 	}
 
 	public List<Role> getRoles() {

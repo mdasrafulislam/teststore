@@ -2,6 +2,7 @@ package it.unibz.teststore.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -28,7 +29,6 @@ public class TestCase {
 	private Project project;
 	
 	@OneToMany
-	@JoinColumn
 	private List<History> histories;
 		
 	public void setId(Integer id){

@@ -5,8 +5,12 @@ import it.unibz.teststore.entity.Item;
 import it.unibz.teststore.entity.Role;
 import it.unibz.teststore.entity.User;
 import it.unibz.teststore.repository.BlogRepository;
+import it.unibz.teststore.repository.BuildRepository;
+import it.unibz.teststore.repository.HistoryRepository;
 import it.unibz.teststore.repository.ItemRepository;
+import it.unibz.teststore.repository.ProjectRepository;
 import it.unibz.teststore.repository.RoleRepository;
+import it.unibz.teststore.repository.TestCaseRepository;
 import it.unibz.teststore.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -35,6 +39,18 @@ public class InitDbService {
 
 	@Autowired
 	private ItemRepository itemRepository;
+	
+	@Autowired
+	private ProjectRepository projectRepository;
+			
+	@Autowired
+	private TestCaseRepository testCaseRepository;
+	
+	@Autowired
+	private BuildRepository buildRepository;
+
+	@Autowired
+	private HistoryRepository historyRepository;
 
 	@PostConstruct
 	public void init() {

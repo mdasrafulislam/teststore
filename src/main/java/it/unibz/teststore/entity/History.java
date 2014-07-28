@@ -2,6 +2,7 @@ package it.unibz.teststore.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ public class History {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name = "testcase_id")
 	private TestCase testCase;
 	
 	@ManyToOne(targetEntity = Build.class)
