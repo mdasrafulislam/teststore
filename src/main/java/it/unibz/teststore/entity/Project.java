@@ -19,10 +19,10 @@ public class Project {
 	@GeneratedValue
 	private Integer id;
 	
-	@Size(min=5,message = "Please insert a project name!")
+	@Size(min=5,max=255,message = "Please insert a project name!")
     private String name;
 	
-	@Size(min =10, message = "Pleasse insert a url address!")
+	@Size(min =10,message = "Pleasse insert a url address!")
 	@URL(message = "Insert a valid url address!")
 	private String url;
 	

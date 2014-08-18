@@ -5,6 +5,9 @@
 
 
 <form:form commandName="project" cssClass="form-horizontal">
+<c:if test="${param.success eq true}">
+		<div class="alert alert-success">Project created successfully!</div>
+	</c:if>
 	<div class="form-group">
 		<label for="name" class="col-sm-2 control-label">Name:</label>
 		<div class="col-sm-10">
@@ -41,6 +44,9 @@
 			<tr>
 				<td>
 					<c:out value="${project.name}" />
+				</td>
+				<td>
+					<c:out value="${project.url}" />
 				</td>
 		    </tr>
 		</c:forEach>

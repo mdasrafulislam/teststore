@@ -21,25 +21,17 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 	
-	
+
 	@RequestMapping
 	public String projects(Model model) {
 		model.addAttribute("projects", projectService.findAllProject());
 		return "project";
 	}
-	
-	
+		
 	@ModelAttribute("project")
 	public Project construct(){
 		return new Project();
 	}
-	
-	
-	@RequestMapping("/project")
-	public String project() {
-		return "project";
-	}
-		
 	
 	@RequestMapping(value="/project",method=RequestMethod.POST)
 	public String saveProject(@Valid @ModelAttribute("project") Project project, BindingResult result){
@@ -47,7 +39,7 @@ public class ProjectController {
 			return "project";
 		}
 		projectService.save(project);		
-	    return "project";
+	    return "redirect:/project.html?success=true";
 	}
 
 }
