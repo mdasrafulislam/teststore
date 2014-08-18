@@ -1,7 +1,5 @@
 package it.unibz.teststore.utils;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 
 import javax.xml.crypto.dsig.keyinfo.KeyValue;

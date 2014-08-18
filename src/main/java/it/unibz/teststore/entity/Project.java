@@ -9,6 +9,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
+
 
 @Entity
 public class Project {
@@ -17,10 +19,11 @@ public class Project {
 	@GeneratedValue
 	private Integer id;
 	
-	@Size(max=255, message = "Project name must be less than 50 character!")
+	@Size(min=5,message = "Please insert a project name!")
     private String name;
 	
-	@Size(min = 1, message = "Invalid url address!")
+	@Size(min =10, message = "Pleasse insert a url address!")
+	@URL(message = "Insert a valid url address!")
 	private String url;
 	
 	@OneToMany
@@ -51,7 +54,7 @@ public class Project {
 		return builds;
 	}
 
-	public void setRoles(List<Build> builds) {
+	public void setBuilds(List<Build> builds) {
 		this.builds = builds;
 	}
 
