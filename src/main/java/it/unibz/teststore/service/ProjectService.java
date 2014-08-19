@@ -31,8 +31,8 @@ public class ProjectService {
 	}
 	
 	
-	public void delete(Project project){
-		projectRepository.delete(project);
+	public void delete(int id){
+		projectRepository.delete(id);
 	}
 
 }

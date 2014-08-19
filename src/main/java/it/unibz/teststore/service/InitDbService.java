@@ -110,7 +110,7 @@ public class InitDbService {
 		
 		Project project1 = new Project();
 		project1.setName("Maven 3x");
-		project1.setUrl("http://gooogle.com");
+		project1.setUrl("http://google.com");
      	projectRepository.save(project1);
      	
      	Project project2 = new Project();

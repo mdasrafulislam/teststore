@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -41,5 +42,13 @@ public class ProjectController {
 		projectService.save(project);		
 	    return "redirect:/project.html?success=true";
 	}
+	
+	@RequestMapping("/project/remove/{id}")
+	public String removeUser(@PathVariable int id) {
+        projectService.delete(id);
+		return "redirect:/project.html?delete=true";
+	}
+	
+	
 
 }
