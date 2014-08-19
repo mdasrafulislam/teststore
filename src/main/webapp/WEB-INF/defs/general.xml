@@ -24,6 +24,12 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/project.jsp" />
 		<put-attribute name="current" value="project" />
 	</definition>
+	
+	<definition name="uploader" extends="common">
+		<put-attribute name="title" value="teststore database:uploader" />
+		<put-attribute name="body" value="/WEB-INF/jsp/uploader.jsp" />
+		<put-attribute name="current" value="uploader" />
+	</definition>
 
 	<definition name="user-detail" extends="common">
 		<put-attribute name="title" value="User detail" />

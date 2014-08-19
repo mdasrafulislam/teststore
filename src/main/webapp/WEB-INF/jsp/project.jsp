@@ -51,7 +51,7 @@ $(document).ready(function() {
 		<tr>
 			<th>Name</th>
 			<th>URL</th>
-			<th> Remove </th>
+			<th> Delete </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -65,7 +65,7 @@ $(document).ready(function() {
 				</td>
 				<td>
 				   <a href="<spring:url value="/project/remove/${project.id}.html" />" class="btn btn-danger triggerRemove">
-						remove
+						Delete
 					</a>
 				</td>
 		    </tr>
