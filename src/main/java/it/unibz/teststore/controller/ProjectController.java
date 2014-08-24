@@ -48,7 +48,4 @@ public class ProjectController {
         projectService.delete(id);
 		return "redirect:/project.html?delete=true";
 	}
-	
-	
-
 }
