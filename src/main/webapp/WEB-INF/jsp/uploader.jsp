@@ -24,7 +24,7 @@
 			   <td>
 			       <select id="ddpProject" name="ddlProject">
 					    <option value="-1">----Select Project----</option>
-					    <option value="1">Maven 3X</option>
+					    <option value="1">archiva-all-maven-3.x</option>
 					    <option value="2">ZooKeeper</option>
 				   </select>            
 			   </td>

@@ -109,13 +109,13 @@ public class InitDbService {
 		itemRepository.save(item4);
 		
 		Project project1 = new Project();
-		project1.setName("Maven 3x");
-		project1.setUrl("http://google.com");
+		project1.setName("archiva-all-maven-3.x");
+		project1.setUrl("https://builds.apache.org/job/archiva-all-maven-3.x-jdk-1.6-IBM-JDK16/");
      	projectRepository.save(project1);
      	
      	Project project2 = new Project();
 		project2.setName("ZooKeeper");
-		project2.setUrl("http://yahoo.com");
+		project2.setUrl("https://builds.apache.org/job/ZooKeeper-trunk-ibm6/");
      	projectRepository.save(project2);
 		
 	}

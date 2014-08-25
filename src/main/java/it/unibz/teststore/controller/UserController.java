@@ -1,7 +1,6 @@
 package it.unibz.teststore.controller;
 
 import it.unibz.teststore.entity.Blog;
-import it.unibz.teststore.service.BlogService;
 import it.unibz.teststore.service.UserService;
 
 import java.security.Principal;
@@ -23,9 +22,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@Autowired
-	private BlogService blogService;
-
 	@ModelAttribute("blog")
 	public Blog constructBlog() {
 		return new Blog();
@@ -38,23 +34,9 @@ public class UserController {
 		return "account";
 	}
 
-	@RequestMapping(value = "/account", method = RequestMethod.POST)
-	public String doAddBlog(Model model,
-			@Valid @ModelAttribute("blog") Blog blog, BindingResult result,
-			Principal principal) {
-		if (result.hasErrors()) {
-			return account(model, principal);
-		}
-		String name = principal.getName();
-		blogService.save(blog, name);
-		return "redirect:/account.html";
-	}
 
-	@RequestMapping("/blog/remove/{id}")
-	public String removeBlog(@PathVariable int id) {
-		Blog blog = blogService.findOne(id);
-		blogService.delete(blog);
-		return "redirect:/account.html";
-	}
+	
+
+	
 
 }
