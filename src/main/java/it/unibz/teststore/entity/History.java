@@ -55,7 +55,7 @@ public class History {
 		return builds;
 	}
 
-	public void setRoles(List<Build> builds) {
+	public void setBuilds(List<Build> builds) {
 		this.builds = builds;
 	}
 	

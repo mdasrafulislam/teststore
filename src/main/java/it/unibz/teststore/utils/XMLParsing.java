@@ -1,8 +1,16 @@
 package it.unibz.teststore.utils;
 
-
+import it.unibz.teststore.entity.Build;
+import it.unibz.teststore.entity.History;
+import it.unibz.teststore.entity.Project;
+import it.unibz.teststore.entity.TestCase;
+import it.unibz.teststore.service.HistoryService;
+import it.unibz.teststore.service.ProjectService;
+import it.unibz.teststore.service.TestCaseService;
 import java.io.File;
-
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Date;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,7 +21,7 @@ import org.w3c.dom.NodeList;
 
 public class XMLParsing {
 
-	public static void LoadData(String path, Long buildId) throws DOMException,
+	public static void LoadData(String path, int buildNo,int pId) throws DOMException,
 			Exception {
 
 		File file = new File(path);
@@ -68,15 +76,14 @@ public class XMLParsing {
 					// or skipping of a method that it depends on.
 
 					// System.out.println(testcasename.getTextContent());
-/*
+
 					TestCaseService testCaseService = new TestCaseService();
-					TestCase testCase = testCaseService.insertIfNotExists(testcasename.g
-							classname.getLocalName());
+					TestCase testCase = testCaseService.insertIfNotExists(testcasename.getTextContent(),
+							classname.getTextContent());
 							
 
 					// break;
-					int durationMilSec = (int) (Double.parseDouble(duration
-							.getTextContent()) * 1000);
+					int durationMilSec = (int) (Double.parseDouble(duration.getNodeValue()) * 1000);
 
 					int testStatus = 0;
 					if (status.getTextContent().toString().equals("PASSED"))
@@ -91,16 +98,28 @@ public class XMLParsing {
 						testStatus = 4;
 					else
 						testStatus = 5;
+					
+					Build build = new Build();
+					
+					Project project = new ProjectService().findProjectById(pId);
+					build.setProject(project);
+					build.setNumber(buildNo);
+					build.setBuildTime(new Date());
+					
+					History history = new History();
 
-					TestInstanceOperation tio = new TestInstanceOperation();
-					tio.insert(buildId, testInfo.getId(),
-							Integer.parseInt(age.getTextContent()),
-							Integer.parseInt(failedSince.getTextContent()),
-							testStatus, durationMilSec,
-							Boolean.valueOf(is_skipped.getTextContent()));
-
+					HistoryService historyService = new HistoryService();
+					
+					history.setTestCase(testCase);
+					history.setAge(Integer.parseInt(age.getTextContent()));
+				    history.setDuration(durationMilSec);
+				    history.setFailedSince(Integer.parseInt(failedSince.getTextContent()));
+				    history.setIsSkipped(Boolean.valueOf(is_skipped.getTextContent()));
+				    history.setStatus(testStatus);
+				    
+				    historyService.save(history);
 					count = count + 1;
-					*/
+					
 				}
 			}
 
@@ -108,7 +127,7 @@ public class XMLParsing {
 
 	}
 
-	public static void LoadDataSecondFormat(String path, Long buildId)
+	public static void LoadDataSecondFormat(String path, int buildNo,int pId)
 			throws DOMException, Exception {
 
 		File file = new File(path);
@@ -129,13 +148,13 @@ public class XMLParsing {
 			String className = null;
 			String duration = null;
 			String faileddSince = null;
-			String testName = null, skipped = null, status = null;
+			String testName = null, is_skipped = null, status = null;
 
 			for (int y = 0; y < nlist.getLength() - 5; y++) {
 
 				org.w3c.dom.Node casea = nlist.item(y);
 				NodeList caseList = casea.getChildNodes();
-/*
+
 				for (int k = 0; k < caseList.getLength(); k++) {
 					if (caseList.item(k).getNodeName() == "age")
 						age = caseList.item(k).getTextContent();
@@ -148,14 +167,14 @@ public class XMLParsing {
 					else if (caseList.item(k).getNodeName() == "name")
 						testName = caseList.item(k).getTextContent();
 					else if (caseList.item(k).getNodeName() == "skipped")
-						skipped = caseList.item(k).getTextContent();
+						is_skipped = caseList.item(k).getTextContent();
 					else if (caseList.item(k).getNodeName() == "status")
 						status = caseList.item(k).getTextContent();
 				}
 
-				TestInfoOperation testInfoOperation = new TestInfoOperation();
-				TestInfo testInfo = testInfoOperation.insertIfNotExists(
-						testName, className);
+				TestCaseService testCaseService = new TestCaseService();
+				TestCase testCase = testCaseService.insertIfNotExists(testName,className);
+						
 
 				int durationMilSec = (int) (Double.parseDouble(duration) * 1000);
 
@@ -171,30 +190,41 @@ public class XMLParsing {
 				else
 					testStatus = 5;
 
-				TestInstanceOperation tio = new TestInstanceOperation();
-				tio.insert(buildId, testInfo.getId(), Integer.parseInt(age),
-						Integer.parseInt(faileddSince), testStatus,
-						durationMilSec, Boolean.valueOf(skipped));
+				Build build = new Build();
+				
+				Project project = new ProjectService().findProjectById(pId);
+				build.setProject(project);
+				build.setNumber(buildNo);
+				build.setBuildTime(new Date());
+				
+				History history = new History();
+
+				HistoryService historyService = new HistoryService();
+				
+				history.setTestCase(testCase);
+				history.setAge(Integer.parseInt(age));
+			    history.setDuration(durationMilSec);
+			    history.setFailedSince(Integer.parseInt(faileddSince));
+			    history.setIsSkipped(Boolean.valueOf(is_skipped));
+			    history.setStatus(testStatus);
+			    
+			    historyService.save(history);
 
 				count = count + 1;
-
-				// System.out.println(testInfo.getId()) ;
-
-				// System.out.println(count+" "+testInfo.getId()+" "+className
-				// +" "+testName +" " +duration) ;
-				// System.out.println(count+" "+className +" "+testName +" "
-				// +duration) ;
 			}
 
 		}
-		System.out.println(count);
+		
 	}
 
-	public static void LoadDatafromWebApi(Long buildId) throws DOMException,
+	public static void LoadDatafromWebApi(int ProjectId,int buildNo) throws DOMException,
 			Exception {
-
-		String urlAddress = "https://builds.apache.org/job/ZooKeeper-trunk-ibm6/"
-				+ buildId + "/testReport/api/xml";
+		
+		
+		Project project = new ProjectService().findProjectById(ProjectId);
+		
+		String urlAddress = project.getUrl()
+				+ buildNo + "/testReport/api/xml";
 
 		URL urlurl = new URL(urlAddress);
 		InputStream stream = urlurl.openStream();
@@ -215,7 +245,8 @@ public class XMLParsing {
 			String className = null;
 			String duration = null;
 			String faileddSince = null;
-			String testName = null, skipped = null, status = null;
+			String testName = null, is_skipped = null, status = null;
+
 
 			for (int y = 0; y < nlist.getLength() - 5; y++) {
 
@@ -234,15 +265,14 @@ public class XMLParsing {
 					else if (caseList.item(k).getNodeName() == "name")
 						testName = caseList.item(k).getTextContent();
 					else if (caseList.item(k).getNodeName() == "skipped")
-						skipped = caseList.item(k).getTextContent();
+						is_skipped = caseList.item(k).getTextContent();
 					else if (caseList.item(k).getNodeName() == "status")
 						status = caseList.item(k).getTextContent();
 				}
 
-				// TestInfoOperation testInfoOperation = new
-				// TestInfoOperation();
-				// TestInfo testInfo=
-				// testInfoOperation.insertIfNotExists(testName, className);
+				TestCaseService testCaseService = new TestCaseService();
+				TestCase testCase = testCaseService.insertIfNotExists(testName,className);
+						
 
 				int durationMilSec = (int) (Double.parseDouble(duration) * 1000);
 
@@ -258,19 +288,31 @@ public class XMLParsing {
 				else
 					testStatus = 5;
 
-				/*
-				 * TestInstanceOperation tio= new TestInstanceOperation();
-				 * tio.insert(buildId,testInfo.getId(),Integer.parseInt(age),
-				 * Integer.parseInt(faileddSince), testStatus, durationMilSec,
-				 * Boolean.valueOf(skipped));
-				 */
+				Build build = new Build();
+							
+				build.setProject(project);
+				build.setNumber(buildNo);
+				build.setBuildTime(new Date());
+				
+				History history = new History();
+
+				HistoryService historyService = new HistoryService();
+				
+				history.setTestCase(testCase);
+				history.setAge(Integer.parseInt(age));
+			    history.setDuration(durationMilSec);
+			    history.setFailedSince(Integer.parseInt(faileddSince));
+			    history.setIsSkipped(Boolean.valueOf(is_skipped));
+			    history.setStatus(testStatus);
+			    
+			    historyService.save(history);
+
 				count = count + 1;
+				
 
 			}
 
 		}
-		System.out.println(count);
-
 	}
 
 }
