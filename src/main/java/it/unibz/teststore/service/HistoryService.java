@@ -26,5 +26,9 @@ public class HistoryService {
 	public void delete(History history){
 		historyRepository.delete(history);
 	}
+	
+	public List<History> SelectTestInstanceby(int testId,int buildId){
+		return historyRepository.findAll();
+	}
 
 }
