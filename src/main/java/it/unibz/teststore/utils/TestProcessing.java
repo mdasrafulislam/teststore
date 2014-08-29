@@ -28,7 +28,7 @@ public class TestProcessing {
 		return tir;
 	}
 
-	public ArrayList<TestInstanceSPResult> getTestCaseMatrix(Long buildId)
+	public ArrayList<TestInstanceSPResult> getTestCaseMatrix(int buildId)
 			throws Exception {
 
 	
