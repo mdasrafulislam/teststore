@@ -3,8 +3,6 @@
 	<persistence-unit name="teststore">
 		<class>it.unibz.teststore.entity.User</class>
 		<class>it.unibz.teststore.entity.Role</class>
-		<class>it.unibz.teststore.entity.Blog</class>
-		<class>it.unibz.teststore.entity.Item</class>
 		<class>it.unibz.teststore.entity.Project</class>
 		<class>it.unibz.teststore.entity.Build</class>
 		<class>it.unibz.teststore.entity.TestCase</class>

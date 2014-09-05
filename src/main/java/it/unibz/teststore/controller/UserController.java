@@ -1,6 +1,6 @@
 package it.unibz.teststore.controller;
 
-import it.unibz.teststore.entity.Blog;
+
 import it.unibz.teststore.service.UserService;
 
 import java.security.Principal;
@@ -22,21 +22,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@ModelAttribute("blog")
-	public Blog constructBlog() {
-		return new Blog();
-	}
-
-	@RequestMapping("/account")
-	public String account(Model model, Principal principal) {
-		String name = principal.getName();
-		model.addAttribute("user", userService.findOneWithBlogs(name));
-		return "account";
-	}
-
-
 	
-
 	
 
 }

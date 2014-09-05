@@ -40,24 +40,13 @@ public class User {
 	@ManyToMany
 	@JoinTable
 	private List<Role> roles;
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-	private List<Blog> blogs;
-
+	
 	public boolean isEnabled() {
 		return enabled;
 	}
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-
-	public List<Blog> getBlogs() {
-		return blogs;
-	}
-
-	public void setBlogs(List<Blog> blogs) {
-		this.blogs = blogs; 
 	}
 
 	public List<Role> getRoles() {
