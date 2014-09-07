@@ -26,7 +26,7 @@ public class MainController {
 		try {
 			 pm.Measurement(49, 6);
 			 pm.Getaptftime(58L,1);
-			pm.Getaptfpertest(58L,1);
+			 pm.Getaptfpertest(58L,1);
 			System.out.println("Done");
 		} catch (Exception e) {
 			e.printStackTrace();
