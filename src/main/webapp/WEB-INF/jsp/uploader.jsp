@@ -8,9 +8,9 @@
 <table class="table table-bordered table-hover table-striped">
 		<thead>
 			<tr>
-				<th>Project</th>
-				<th>:</th>
-				<th>Build Number </th>
+				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,7 +32,7 @@
 			
 			<tr>
 			   <td>
-			       Build
+			       Build Number
 			   </td>
 			   <td>:</td>
 			   <td>
