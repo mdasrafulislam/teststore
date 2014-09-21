@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.6" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <package id="1" language="java" name="it.unibz.teststore.annotation" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/annotation" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="69" width="191" x="168" y="66"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="2" language="java" name="it.unibz.teststore.controller" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="68" width="195" x="476" y="301"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="3" language="java" name="it.unibz.teststore.entity" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/entity" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="68" width="195" x="469" y="61"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="4" language="java" name="it.unibz.teststore.repository" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/repository" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="77" width="187" x="174" y="172"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="5" language="java" name="it.unibz.teststore.service" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/service" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="190" x="174" y="286"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="6" language="java" name="it.unibz.teststore.solver" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/solver" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="73" width="200" x="470" y="186"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="7" language="java" name="it.unibz.teststore.utils" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/utils" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="73" width="193" x="176" y="398"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <package id="8" language="java" name="it.unibz.teststore.exception" project="teststore" 
+    file="/teststore/src/main/java/it/unibz/teststore/exception" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="69" width="200" x="481" y="405"/>    
+    <display autosize="false" stereotype="true" accessors="true"/>  
+  </package>  
+  <dependency id="9">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="10">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="11">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="12">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="13">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="14">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="15">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="16">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="17">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="18">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="20">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
